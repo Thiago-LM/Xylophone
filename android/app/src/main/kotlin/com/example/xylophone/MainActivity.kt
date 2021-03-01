@@ -1,4 +1,4 @@
-package com.example.xylophone
+package br.com.odawara.xylophone
 
 import io.flutter.embedding.android.FlutterActivity
 
