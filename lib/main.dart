@@ -36,18 +36,24 @@ class MyHomePage extends StatelessWidget {
       backgroundColor: Colors.black,
       body: SafeArea(
         child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-          return ListView.builder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return ListView.builder(
               itemCount: colors.length,
               itemBuilder: (BuildContext context, int index) {
-                return FlatButton(
+                return Container(
                   height: constraints.maxHeight / 7,
-                  color: colors[index],
-                  onPressed: () => player.play('note${index + 1}.wav'),
-                  child: Text(''),
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: colors[index],
+                    ),
+                    onPressed: () => player.play('note${index + 1}.wav'),
+                    child: Text(''),
+                  ),
                 );
-              });
-        }),
+              },
+            );
+          },
+        ),
       ),
     );
   }
