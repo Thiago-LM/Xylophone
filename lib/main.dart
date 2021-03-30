@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -46,7 +45,11 @@ class MyHomePage extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor: colors[index],
                     ),
-                    onPressed: () => player.play('note${index + 1}.wav'),
+                    onPressed: () => player.play(
+                      'note${index + 1}.wav',
+                      mode: PlayerMode.LOW_LATENCY,
+                      stayAwake: false,
+                    ),
                     child: Text(''),
                   ),
                 );
